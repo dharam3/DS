@@ -1,0 +1,15 @@
+weighted
+directed
+5
+Bangalore
+Delhi
+Patna
+Mumbai
+Madhepura
+Bangalore Delhi 3000
+Delhi Patna 1500
+Bangalore Mumbai 2100
+Bangalore Madhepura 2700
+Mumbai Madhepura 1800
+Patna Madhepura 300
+Bangalore Patna 2400

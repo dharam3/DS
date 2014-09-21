@@ -1,0 +1,14 @@
+nonweighted
+undirected
+5
+A
+B
+C
+D
+E
+A B
+A C
+B D
+C D
+C B
+E D
