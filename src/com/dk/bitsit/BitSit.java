@@ -10,13 +10,6 @@ package com.dk.bitsit;
 public class BitSit {
 
 	/**
-	 * 
-	 */
-	public BitSit() {
-		// TODO Auto-generated constructor stub
-	}
-
-	/**
 	 * @param args
 	 */
 	public static void main(String[] args) {
@@ -24,7 +17,8 @@ public class BitSit {
 		/*
 		 * for (int i = 1; i < 10; i++) System.out.println(isKthBitSet(15, i));
 		 */
-		testNumberOfBit();
+		// testNumberOfBit();
+		testIsPalindrom();
 	}
 
 	/**
@@ -47,7 +41,8 @@ public class BitSit {
 	}
 
 	/**
-	 * This runs only for number of 1's there in number
+	 * This runs only for number of 1's there in number. e.g. for 1010 loop will
+	 * run only for two times
 	 * 
 	 * @param n
 	 * @return
@@ -61,4 +56,38 @@ public class BitSit {
 		return count;
 	}
 
+	private static void testIsPalindrom() {
+		assert isPalindrom(1);
+		assert !isPalindrom(2);
+		assert isPalindrom(5);
+		assert !isPalindrom(10);
+		assert isPalindrom(15);
+		assert !isPalindrom(16);
+		System.out.println("testIsPalindrom DONE");
+	}
+
+	/**
+	 * Given an integer ‘x’, write a function that returns true if binary
+	 * representation of x is palindrome else return false.
+	 */
+
+	private static boolean isPalindrom(int n) {
+		int msbPosition = 32;
+		int mask = ~Integer.MAX_VALUE;
+		// First find out the the MSB set bit position
+		while (msbPosition != 0) {
+			if ((mask & n) != 0) {
+				break;
+			}
+			msbPosition--;
+			mask = mask >> 1;
+		}
+
+		for (int left = 1, right = msbPosition; right > left; left++, right--) {
+			if (((n & (1 << (left - 1))) != 0) != ((n & (1 << (right - 1))) != 0)) {
+				return false;
+			}
+		}
+		return true;
+	}
 }
