@@ -34,6 +34,11 @@ public class BooleanParenthsization {
 		System.out.println(n);
 	}
 
+	/**
+	 * @param symbol
+	 * @param operater
+	 * @return
+	 */
 	static int getNumberOfParenthesization(boolean[] symbol, char[] operater) {
 		int n = symbol.length;
 		int T[][] = new int[n][n];
