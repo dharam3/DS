@@ -3,29 +3,36 @@ package com.dk.string;
 public class StringQuestion {
 
 	public static void main(String args[]) {
-		 //System.out.println(reverseRec("ABCDEFGHIJKLMNOPQRSTUVWXYZ"));
-		String s=" the sky is blue ";
-		System.out.println(">>"+reverseString(s)+"<<");
-//		String text = "dharmendra kumar";
+		// System.out.println(reverseRec("ABCDEFGHIJKLMNOPQRSTUVWXYZ"));
+		String s = " the sky is blue ";
+		System.out.println(">>" + reverseString(s) + "<<");
+		// String text = "dharmendra kumar";
 		// System.out.println(removeDuplicates(text.toCharArray()));
 		// System.out.println(encodeString(text));
-//		System.out.println(compressString("abbbbbccaa"));
-		 float a=(float) 3.0;
+		// System.out.println(compressString("abbbbbccaa"));
 	}
 
-	private static String reverseString(String s){
-	String[] parts = s.trim().split("\\s+");
-	StringBuilder out = new StringBuilder();
-	if (parts.length > 0) {
-	    for (int i = parts.length - 1; i >= 0; i--) {
-	    	out.append(parts[i]);
-	    	out.append(" ");
-	    }
-//	    out += parts[0];
+	/**
+	 * Keep the word as it is, but recerse the string. e.g. if "Hello World" is
+	 * input, output should be "World Hello". Also ignore the starting and
+	 * trailing spaces
+	 * 
+	 * @param s
+	 * @return Reversed String
+	 */
+	private static String reverseString(String s) {
+		String[] parts = s.trim().split("\\s+");
+		StringBuilder out = new StringBuilder();
+		if (parts.length > 0) {
+			for (int i = parts.length - 1; i >= 0; i--) {
+				out.append(parts[i]);
+				out.append(" ");
+			}
+			// out += parts[0];
+		}
+		return out.toString();
 	}
-	return out.toString();
-	}
-	
+
 	static String reverse(String text) {
 		int index = 0, length = text.length();
 		char[] charArray = text.toCharArray();
@@ -37,11 +44,13 @@ public class StringQuestion {
 		}
 		return new String(charArray);
 	}
-	public static String reverseRec(String s){
-		if(s.length()<2) return s;
-		return reverse(s.substring(1))+ s.charAt(0);
+
+	public static String reverseRec(String s) {
+		if (s.length() < 2)
+			return s;
+		return reverse(s.substring(1)) + s.charAt(0);
 	}
-	
+
 	static String reverseThroughRecursion(char[] charArray, int replace,
 			int with) {
 		if (replace >= with) {
@@ -133,7 +142,8 @@ public class StringQuestion {
 				charToCompare = array[i];
 			}
 		}
-		if(count>1) sb.append(count);
+		if (count > 1)
+			sb.append(count);
 		return sb.toString();
 	}
 

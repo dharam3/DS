@@ -5,7 +5,7 @@ package com.dk.string;
  */
 
 /**
- * KMP algorithm for searching the text 
+ * KMP algorithm for searching the text
  * 
  * @author d35kumar
  *
@@ -46,8 +46,9 @@ public class SubStringSearch {
 		for (i = 0; i < text.length() && j < M; i++) {
 			j = dfa[text.charAt(i)][j];
 		}
-		// if J has reached to totocl character, 
-		// means match is found, and we should return the starting index of pattern
+		// if J has reached to totocl character,
+		// means match is found, and we should return the starting index of
+		// pattern
 		if (j == M)
 			return i - j;
 		else

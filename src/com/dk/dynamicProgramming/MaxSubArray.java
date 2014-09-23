@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.dk.array;
+package com.dk.dynamicProgramming;
 
 /**
  * @author d35kumar

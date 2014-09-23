@@ -52,6 +52,7 @@ public class MatrixOf0And1 {
 	static int findSquareMatrixwithAll1(int a[][]) {
 		// create a duplicate matrix of same dimension
 		int d[][] = new int[a.length][a[0].length];
+		int max = 0;
 		for (int i = 0; i < a.length; i++) {
 			for (int j = 0; j < a[0].length; j++) {
 				// if it first row or first column, copy the element as it is
@@ -64,17 +65,11 @@ public class MatrixOf0And1 {
 						// the value of this cell
 						d[i][j] = Math.min(Math.min(d[i - 1][j], d[i][j - 1]),
 								d[i - 1][j - 1]) + 1;
+						if (max < d[i][i])
+							max = d[i][j];
 					} else
 						d[i][j] = 0;
 				}
-			}
-		}
-		// Now find out the maximum integer among all the computed new matrix
-		int max = 0;
-		for (int i = 0; i < d.length; i++) {
-			for (int j = 0; j < d[0].length; j++) {
-				if (max < d[i][j])
-					max = d[i][j];
 			}
 		}
 
