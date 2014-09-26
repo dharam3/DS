@@ -1,6 +1,5 @@
 package com.dk.dynamicProgramming;
 
-import java.net.Inet4Address;
 
 /**
  * Given two sequences, find the length of longest subsequence present in both
