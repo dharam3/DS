@@ -571,3 +571,5 @@
 /bin/
 /bin/
 /bin/
+/.settings/*
+/.classpath
