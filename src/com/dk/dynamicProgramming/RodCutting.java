@@ -32,13 +32,17 @@ public class RodCutting {
 	 */
 	public static void main(String[] args) {
 		int arr[] = { 1, 5, 8, 9, 10, 17, 17, 20 };
-//		System.out.println(maxValue(arr));
-		int v=2;
-		v+=v++;
-		System.out.println(v);
+		System.out.println(maxValue(arr));
+		// int v=2;
+		// v+=v++;
+		// System.out.println(v);
 
 	}
 
+	/**
+	 * @param price
+	 * @return
+	 */
 	static int maxValue(int[] price) {
 		int NUMBER = price.length;
 		int[] value = new int[NUMBER + 1];
@@ -48,6 +52,10 @@ public class RodCutting {
 			for (int j = 0; j < i; j++) {
 				max = Math.max(max, price[j] + value[i - j - 1]);
 			}
+			// value at index i in this array says that for rod of length i,
+			// this is maximum revenue that can be generated.
+			// it just calculates the value, doesn't give any detail about how
+			// to cut it.
 			value[i] = max;
 		}
 
