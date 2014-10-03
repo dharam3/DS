@@ -20,13 +20,31 @@ public class Test {
 		// temp = temp.next;
 		// }
 		// System.out.println(head);
-		testSLLWithAuxPointer();
+		// testSLLWithAuxPointer();
 		// head = head.reverse();
 		// reverse(head, 3);
 		// recursiveReverse(head);
 		// System.out.println(h);
 
 		// printPossible("", 3, 0);
+		testDLLWithAux();
+
+	}
+
+	public static void testDLLWithAux() {
+		DLL head = new DLL(1);
+		DLL temp = head;
+		for (int i = 2; i < 6; i++) {
+			DLL d = new DLL(i);
+			temp.next = d;
+			temp = d;
+		}
+
+		System.out.println(temp.data);
+		// while (head != null) {
+		// System.out.print(head.data + "  ");
+		// head = head.next;
+		// }
 	}
 
 	static void testSLLWithAuxPointer() {
