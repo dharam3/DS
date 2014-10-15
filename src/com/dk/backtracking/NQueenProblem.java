@@ -9,7 +9,7 @@ package com.dk.backtracking;
  */
 public class NQueenProblem {
 
-	private static final int NUMBER = 8;
+	private static final int NUMBER = 5;
 	/**
 	 * If any index of this array is having non-negative value, it means queen
 	 * is placed at that position

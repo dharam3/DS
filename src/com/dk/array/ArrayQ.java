@@ -13,14 +13,15 @@ public class ArrayQ {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		int arr[] = { 3, 3, 2, 3 };// { 12, 1, 12, 3, 12, 1, 1, 2, 3, 3 };
+		int arr[] = { 1, 2, 4, 5 };// { 12, 1, 12, 3, 12, 1, 1, 2, 3, 3 };
 		ArrayQ arrayQ = new ArrayQ();
-		int i = arrayQ.findUniqueueElement(arr);
-		System.out.println("=======>" + i);
-
+		// int i = arrayQ.findUniqueueElement(arr);
+		// System.out.println("=======>" + i);
+		int b[] = { 5, 4, 3, 2, 1 };
+		int unique = arrayQ.findUniqueElementinTwoArray(arr, b);
 		// int arr[] = { 2, 3, 3, 2, 4, 1, 4 };
 		// int i = arrayQ.findUniqueElement1(arr);
-		// System.out.println(i);
+		 System.out.println(unique);
 
 	}
 
@@ -37,7 +38,7 @@ public class ArrayQ {
 	int findUniqueueElement(int[] arr) {
 		int ones = 0, twos = 0;
 
-		int notThree=0;
+		int notThree = 0;
 
 		// Let us take the example of {3, 3, 2, 3} to understand this
 		for (int ele : arr) {
@@ -111,6 +112,22 @@ public class ArrayQ {
 			val ^= ele;
 		}
 		return val;
+	}
+
+	/**
+	 * Given two arrays, say A and B, where B has one more element than A. and B
+	 * is having all element of A, except one element, find that unique element
+	 * 
+	 * @return
+	 */
+	int findUniqueElementinTwoArray(int[] a, int[] b) {
+		int result = 0;
+		int i = 0;
+		// assuming b's length is grater that a length
+		for (i = 0; i < a.length; i++) {
+			result ^= a[i] ^ b[i];
+		}
+		return result ^ b[i];
 	}
 
 }

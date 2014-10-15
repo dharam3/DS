@@ -4,16 +4,47 @@ public class StringQuestion {
 
 	public static void main(String args[]) {
 		// System.out.println(reverseRec("ABCDEFGHIJKLMNOPQRSTUVWXYZ"));
-		String s = " the sky is blue ";
-		System.out.println(">>" + reverseString(s) + "<<");
+//		String s = " the sky is blue ";
+//		System.out.println(">>" + reverseString(s) + "<<");
 		// String text = "dharmendra kumar";
 		// System.out.println(removeDuplicates(text.toCharArray()));
 		// System.out.println(encodeString(text));
 		// System.out.println(compressString("abbbbbccaa"));
+
+		System.out.println(isSubsequence("gksrek", "geeksforgeeks"));
 	}
 
 	/**
-	 * Keep the word as it is, but recerse the string. e.g. if "Hello World" is
+	 * Given two strings str1 and str2, find if str1 is a subsequence of str2. A
+	 * subsequence is a sequence that can be derived from another sequence by
+	 * deleting some elements without changing the order of the remaining
+	 * elements (source: wiki). Expected time complexity is linear.
+	 * 
+	 * Examples:
+	 * 
+	 * Input: str1 = "AXY", str2 = "ADXCPY" Output: True (str1 is a subsequence
+	 * of str2)
+	 * 
+	 * Input: str1 = "AXY", str2 = "YADXCP" Output: False (str1 is not a
+	 * subsequence of str2)
+	 * 
+	 * Input: str1 = "gksrek", str2 = "geeksforgeeks" Output: True (str1 is a
+	 * subsequence of str2)
+	 */
+
+	public static boolean isSubsequence(String str1, String str2) {
+		int i = 0;
+		for (int j = 0; i < str1.length() && j < str2.length(); j++) {
+			if (str1.charAt(i) == str2.charAt(j)) {
+				i++;
+			}
+		}
+
+		return i == str1.length();
+	}
+
+	/**
+	 * Keep the word as it is, but reverse the string. e.g. if "Hello World" is
 	 * input, output should be "World Hello". Also ignore the starting and
 	 * trailing spaces
 	 * 

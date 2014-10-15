@@ -30,13 +30,13 @@ public class Permutation {
 
 	}
 
-	private static void swap(String s, int i, int j) {
-		if (i == j)
-			return;
-		char ithChar = s.charAt(i);
-		char jthChar = s.charAt(j);
-
-	}
+	// private static void swap(String s, int i, int j) {
+	// if (i == j)
+	// return;
+	// char ithChar = s.charAt(i);
+	// char jthChar = s.charAt(j);
+	//
+	// }
 
 	/*
 	 * public static void permute(String s, int i) {
@@ -46,12 +46,29 @@ public class Permutation {
 	 * swap(s, i, j); } }
 	 * 
 	 * }
-	 * 
-	 * private static void swap(String s, int i, int j) { if (i == j) return;
-	 * char ch = s.charAt(i); char ch1 = s.charAt(j); StringBuilder sb = new
-	 * StringBuilder(); sb.append(s.substring(0, i - 1)); sb.append(ch1);
-	 * sb.append(s.substring(i + 1, j - 1)); sb.append(ch1);
-	 * sb.append(s.substring(j + 1)); s = sb.toString(); }
 	 */
+	/**
+	 * 
+	 * i or j can be 0 i or j can be greater than string length i and j are same
+	 * 
+	 * @param s
+	 * @param i
+	 * @param j
+	 */
+	private static void swap(String s, int i, int j) {
+		if (i == j || i >= s.length() || j >= s.length() || i < j)
+			return;
+		char ithChar = s.charAt(i);
+		char jthChar = s.charAt(j);
+		StringBuilder sb = new StringBuilder();
+		if (i > 0)
+			sb.append(s.substring(0, i - 1));
+		sb.append(jthChar);
+		if (j > 0)
+			sb.append(s.substring(i + 1, j - 1));
+		sb.append(ithChar);
+		sb.append(s.substring(j + 1));
+		s = sb.toString();
+	}
 
 }

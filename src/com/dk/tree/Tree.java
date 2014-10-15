@@ -5,6 +5,7 @@ package com.dk.tree;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Stack;
 
@@ -20,7 +21,8 @@ public class Tree {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		int[] array = new int[] { 2, 3, 4, 5, 6, 7 };
+		int[] array = new int[] { 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14,
+				15 };
 		Node root = new Node(1);
 		for (int each : array) {
 			insertNewNode(root, each);
@@ -52,16 +54,50 @@ public class Tree {
 		// printAllAncestar(root, 1);
 		// System.out.println();
 
-		 Node common = findCommonAncestor(root, 4, 8);
-		 System.out.println("Common ancestor of " + common);
+		// Node common = findCommonAncestor(root, 4, 8);
+		// System.out.println("Common ancestor of " + common);
 		// zigZagLevelOrder1(root);
+		int count = countSameHorizontalDistanceNodePair(root);
+		System.out.println("\n========>" + count);
 
+	}
+
+	static int countSameHorizontalDistanceNodePair(Node root) {
+		int count = 0;
+		Queue<Node> queue = new LinkedList<Node>();
+		queue.add(root);
+		queue.add(null);
+		boolean previousNodeHadRightChild = false;
+		while (!queue.isEmpty()) {
+			Node currentNode = queue.poll();
+			if (currentNode == null) {
+				if (!queue.isEmpty()) {
+					queue.add(null);
+				}
+				previousNodeHadRightChild = false;
+			} else {
+				if (currentNode.left != null) {
+					queue.add(currentNode.left);
+					if (previousNodeHadRightChild)
+						count++;
+				}
+				if (currentNode.right != null) {
+					queue.add(currentNode.right);
+					previousNodeHadRightChild = true;
+				} else {
+					previousNodeHadRightChild = false;
+				}
+			}
+		}
+
+		return count;
 	}
 
 	static boolean printPathToParticularNode(Node root, int targetNode) {
 		if (root == null)
 			return false;
-		if ((int) root.data == targetNode || printPathToParticularNode(root.left, targetNode)
+		if ((int) root.data == targetNode
+				|| printPathToParticularNode(root.left, targetNode)
 				|| printPathToParticularNode(root.right, targetNode)) {
 			System.out.print("   " + root.data);
 			return true;

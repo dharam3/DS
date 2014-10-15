@@ -21,13 +21,13 @@ public class PrintPair {
 		/*
 		 * int n = 47; print(A, n);
 		 */
-		assert print1(A, 5);
-		assert print1(A, 46);
-		assert print1(A, 7);
-		assert print1(A, 11);
-		assert print1(A, 9);
-		assert print1(A, 16);
-		assert print1(A, 12);
+		assert print(A, 5);
+		assert print(A, 46);
+		assert print(A, 7);
+		assert print(A, 11);
+		assert print(A, 9);
+		assert print(A, 16);
+		assert print(A, 12);
 	}
 
 	/**
@@ -51,7 +51,7 @@ public class PrintPair {
 			}
 			t[arr[i]] = true;
 		}
-		System.out.println("No such number not found");
+		System.out.println("No such number found");
 		return false;
 	}
 
